@@ -20,11 +20,12 @@
             <img src="./images/pass.png" class="img">
             <input type="password" class="input" placeholder="Password...">
         </div>
-        <div class="signIn">
+        <div class="signIn" on>
             <div class="text">
                 Sign in
             </div>
         </div>
     </div>
 </body>
+<script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
 </html>
