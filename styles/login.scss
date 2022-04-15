@@ -1,0 +1,74 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(24, 172, 218);
+}
+
+.loginContainer{
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    background-color: white;
+    padding: 20px 30px;
+    height: 300px;
+    .header{
+        font-size: 24px;
+        color: #c4c4c4;
+        margin-bottom: 10px;
+    }
+    .inputDiv{
+        width: 260px;
+        height: 42px;
+        background-color: #e9e9e9;
+        display: flex;
+        border-radius: 20px;
+        justify-content: flex-start;
+        align-items: center;
+        overflow:hidden;
+        margin: 5px 0;
+        .input{
+            width: 100%;
+            background-color: #e9e9e9;
+            height: 32px;
+            margin: 0;
+            padding: 0 5px;
+            border: none;
+            font-size: 18px;
+        }
+        .input:focus{
+            outline: none;
+        }
+        .img{
+            height: 42px;
+            width: 42px;
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+        }
+        .signIn{
+            display: flex;
+            border-radius: 20px;
+            width: 260px;
+            height: 42px;
+            background-color: rgb(24, 172, 218);
+            margin-top: 20px;
+            cursor: pointer;
+            .text{
+                margin: auto;
+                font-size: 24px;
+                color: white;
+            }
+        }
+}
