@@ -21,7 +21,7 @@ body {
           align-items: center;
   width: 100vw;
   height: 100vh;
-  background-color: #18acda;
+  background-color: #262a33;
 }
 
 .loginContainer {
@@ -41,14 +41,14 @@ body {
       -ms-flex-align: center;
           align-items: center;
   border-radius: 20px;
-  background-color: white;
+  background-color: #657ee4;
   padding: 20px 30px;
   height: 300px;
 }
 
 .loginContainer .header {
   font-size: 24px;
-  color: #c4c4c4;
+  color: white;
   margin-bottom: 10px;
 }
 
@@ -98,7 +98,7 @@ body {
   border-radius: 20px;
   width: 260px;
   height: 42px;
-  background-color: #18acda;
+  background-color: #262a33;
   margin-top: 20px;
   cursor: pointer;
 }
