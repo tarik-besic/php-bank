@@ -38,6 +38,16 @@ a {
   height: 100vh;
   position: fixed;
   top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   background-color: #1a1d24;
   overflow: hidden;
   z-index: 100;
@@ -89,6 +99,28 @@ a {
 
 .sidebar .menu:hover {
   background-color: #262a33;
+}
+
+.sidebar .logout {
+  margin-bottom: 20px;
+  width: 160px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+.sidebar .logout img {
+  width: 40px;
+  height: 40px;
 }
 
 .opened {
@@ -165,5 +197,7 @@ a {
   background-color: #657ee4;
   border-radius: 10px;
   padding: 10px;
+  font-size: 21px;
+  border: none;
 }
 /*# sourceMappingURL=dashboard.css.map */

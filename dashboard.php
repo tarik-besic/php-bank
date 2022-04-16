@@ -17,22 +17,29 @@ $result = $konekcija->query($sql);
 
 <body>
     <div class="sidebar">
-        <div class="hamburger">
-            <img src="./images/menu.png" class="img">
+        <div class="upper">
+            <div class="hamburger">
+                <img src="./images/menu.png" class="img">
+            </div>
+            <a class="menu" href="dashboard.php">
+                <img src="./images/123.png">
+                <div class="text">Dashboard</div>
+            </a>
+            <a class="menu" href="">
+                <img src="./images/123.png">
+                <div class="text">Transactions</div>
+            </a>
+            <a class="menu">
+                <img src="./images/123.png">
+                <div class="text">Manage Exchange Rates</div>
+            </a>
         </div>
-
-        <div class="menu">
-            <img src="./images/123.png">
-            <div class="text">Manage Users</div>
-        </div>
-        <div class="menu">
-            <img src="./images/123.png">
-            <div class="text">Manage Users</div>
-        </div>
-        <div class="menu">
-            <img src="./images/123.png">
-            <div class="text">Manage Users</div>
-        </div>
+        <a class="logout" href="login.php">
+            <img src="./images/logout.png" alt="">
+            <span>
+                Logout
+            </span>
+        </a>
     </div>
     <div class="header">
         <h1>BANKING SYSTEM</h1>
@@ -62,7 +69,7 @@ $result = $konekcija->query($sql);
                                 <a class="action" href="update.php?id=<?php echo $row['id']; ?>"> Izmjeni </a>
                             </div>
                             <div class="cell ">
-                                <a class="action" href="delete.php?id=<?php echo $row['id']; ?>">Brisanje</a>
+                                <button class="action" onclick="klik(<?php echo $row['id']; ?>)">Brisanje</button>
                             </div>
 
                         </div>
@@ -83,6 +90,26 @@ $result = $konekcija->query($sql);
             sidebar.addClass("opened");
 
     })
+    const klik = (id) => {
+
+        $.ajax({
+            url: "delete.php",
+            method: "post",
+            data: {
+                id
+            },
+            success: (data) => {
+                console.log(data);
+                if (data) {
+                    alert("Uspjesno ste obrisali korisnika")
+                    window.location = "dashboard.php"
+                } else
+                    alert("Problem prilikom brisanja korisnika")
+
+            }
+        })
+
+    }
 </script>
 
 </html>

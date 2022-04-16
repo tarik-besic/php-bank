@@ -49,22 +49,29 @@ if (isset($_GET['id'])) {
 
 <body>
     <div class="sidebar">
-        <div class="hamburger">
-            <img src="./images/menu.png" class="img">
+        <div class="upper">
+            <div class="hamburger">
+                <img src="./images/menu.png" class="img">
+            </div>
+            <a class="menu" href="dashboard.php">
+                <img src="./images/123.png">
+                <div class="text">Dashboard</div>
+            </a>
+            <a class="menu" href="">
+                <img src="./images/123.png">
+                <div class="text">Transactions</div>
+            </a>
+            <a class="menu" href="">
+                <img src="./images/123.png">
+                <div class="text">Manage Exchange Rates</div>
+            </a>
         </div>
-
-        <a class="menu" href="dashboard.php">
-            <img src="./images/123.png">
-            <div class="text">Dashboard</div>
+        <a class="logout" href="login.php">
+            <img src="./images/logout.png" alt="">
+            <span>
+                Logout
+            </span>
         </a>
-        <a class="menu" href="login.php">
-            <img src="./images/123.png">
-            <div class="text">Manage Users</div>
-        </a>
-        <div class="menu">
-            <img src="./images/123.png">
-            <div class="text">Manage Users</div>
-        </div>
     </div>
 
     <div class="header">
@@ -120,12 +127,10 @@ if (isset($_GET['id'])) {
             data: data,
             success: (data) => {
                 console.log(data);
-                if (data)
-                    {
-                        alert("Uspjesno ste izmjenili korisnika")
-                        window.location="dashboard.php"
-                    }
-                else
+                if (data) {
+                    alert("Uspjesno ste izmjenili korisnika")
+                    window.location = "dashboard.php"
+                } else
                     alert("Problem prilikom izmjene korisnika")
 
             }
