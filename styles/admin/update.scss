@@ -1,0 +1,76 @@
+@import "../reusable";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+.sidebar {
+    @include sidebar;
+}
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 62px;
+    width: 100%;
+
+    h1 {
+        color: white;
+    }
+    background-color: #262a33;
+}
+
+.content{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 40vw;
+    margin-top: 25vh;
+    background-color: #262a33;
+    width: fit-content;
+    padding: 5em;
+    border-radius: 30px;
+    input{
+        padding:6px 5px;
+        border-radius: 10px;
+        border:1px solid grey;
+        margin: 20px;
+        &:focus{
+            outline: none;
+        }
+    }
+    .tekst{
+    width: 40px;
+    color: white;
+    display: flex;
+    justify-content: flex-end;
+    }
+    .ime, .email,.money{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #submit{
+        padding: 15px;
+        font-size: 20px;
+        margin-top: 20px;
+        border-radius: 10px;
+        background-color: aliceblue;
+    }
+}
+.opened {
+    width: 160px;
+}
