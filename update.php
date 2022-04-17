@@ -61,7 +61,7 @@ if (isset($_GET['id'])) {
                 <img src="./images/123.png">
                 <div class="text">Transactions</div>
             </a>
-            <a class="menu" href="">
+            <a class="menu" href="exhange.php">
                 <img src="./images/123.png">
                 <div class="text">Manage Exchange Rates</div>
             </a>
@@ -95,7 +95,7 @@ if (isset($_GET['id'])) {
         </div>
         <div class="money">
             <span class="tekst">
-                Pare:
+                Novac:
             </span>
             <input type="text" id="money" value="<?php echo $money; ?>">
         </div>

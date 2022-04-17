@@ -29,7 +29,7 @@ $result = $konekcija->query($sql);
                 <img src="./images/123.png">
                 <div class="text">Transactions</div>
             </a>
-            <a class="menu">
+            <a class="menu" href="exhange.php?kurs=eur">
                 <img src="./images/123.png">
                 <div class="text">Manage Exchange Rates</div>
             </a>
