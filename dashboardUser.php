@@ -1,22 +1,25 @@
 <?php
-include "konekcija.php";
-    $sql = "SELECT * FROM `users` WHERE `id`='500'";
-    $id;
-    $ime;
-    $email;
-    $money;
-    $result = $konekcija->query($sql);
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            $id = $row['id'];
-            $ime = $row['ime'];
-            $email = $row['email'];
-            $money = $row['novac'];
-        }
 
+include "konekcija.php";
+$sql = "SELECT * FROM `users` WHERE `id`='40'";
+$id;
+$ime;
+$email;
+$money;
+$result = $konekcija->query($sql);
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $id = $row['id'];
+        $ime = $row['ime'];
+        $email = $row['email'];
+        $money = $row['novac'];
+    }
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,6 +27,7 @@ include "konekcija.php";
     <link rel="stylesheet" href="./styles/user/dashboard.css">
     <title>Document</title>
 </head>
+
 <body>
     <div class="sidebar">
         <div class="upper">
@@ -51,14 +55,35 @@ include "konekcija.php";
         </a>
     </div>
     <div class="header">
-        <h1>DOBRO DOSAO <?php echo $name;?> </h1>
+        <h1>DOBRO DOSAO <?php echo $ime; ?> </h1>
     </div>
 
     <div class="container">
         <div class="card">
-            Trenutno imas <?php echo $money?> KM;
-            <!-- slikica neka -->
+            <div class="face face1">
+                <div class="content">
+                    <h3>PAREEEE <br>🤑🤑</h3>
+                    <img src="./images/money.png">
+                </div>
+            </div>
+            <div class="face face2">
+                <div class="content">
+                    <h1 style="text-align:center">Trenutno imas <?php echo $money ?> KM;</h1>
+                </div>
+            </div>
         </div>
     </div>
 </body>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script>
+     $(".hamburger").click(() => {
+        const sidebar = $(".sidebar");
+        if (sidebar.hasClass("opened")) {
+            sidebar.removeClass("opened");
+        } else
+            sidebar.addClass("opened");
+
+    })
+</script>
+
 </html>
