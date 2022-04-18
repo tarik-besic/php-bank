@@ -57,11 +57,11 @@ if (isset($_GET['id'])) {
                 <img src="./images/123.png">
                 <div class="text">Dashboard</div>
             </a>
-            <a class="menu" href="">
+            <a class="menu" href="transactionsAdmin.php">
                 <img src="./images/123.png">
                 <div class="text">Transactions</div>
             </a>
-            <a class="menu" href="exhange.php">
+            <a class="menu" href="exhange.php?kurs=eur">
                 <img src="./images/123.png">
                 <div class="text">Manage Exchange Rates</div>
             </a>

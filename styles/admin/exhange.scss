@@ -19,6 +19,9 @@ a {
 .sidebar {
     @include sidebar;
 }
+.opened {
+    width: 160px;
+}
 .header {
     display: flex;
     justify-content: center;

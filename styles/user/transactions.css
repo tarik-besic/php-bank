@@ -137,34 +137,95 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 10vh 40vw;
 }
 
-.content .euro {
+.content .table-container {
+  overflow-x: auto;
+}
+
+.content .table-container .row {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.content .table-container .row .add {
+  background-color: #657ee4;
+  margin-top: 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.content .table-container .row .add:hover {
+  background-color: #4564e2;
+}
+
+.content .table-container .table {
+  padding: 10px;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  width: 900px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
-#add {
-  border: none;
-  border-radius: 20px;
+.content .table-container .table .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: white;
+  margin-bottom: 10px;
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.content .table-container .table .cell {
+  background-color: white;
   padding: 10px;
-  width: 90px;
-  color: white;
-  cursor: pointer;
-  margin-top: 20px;
-  background-color: #657ee4;
+  word-wrap: break-word;
+  width: 180px;
+  font-size: 21px;
+  min-width: 100px;
   text-align: center;
 }
-/*# sourceMappingURL=exhange.css.map */
+
+.content .table-container .table .header {
+  background-color: #657ee4;
+  font-weight: bold;
+}
+
+.content .table-container .table .action {
+  color: black;
+  margin: 2px;
+  background-color: #657ee4;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 21px;
+  border: none;
+}
+
+.content .table-container .table .action:hover {
+  background-color: #4564e2;
+}
+/*# sourceMappingURL=transactions.css.map */

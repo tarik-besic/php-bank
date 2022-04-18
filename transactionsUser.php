@@ -1,21 +1,8 @@
 <?php
-
 include "konekcija.php";
-
-$sql = "SELECT * FROM `users` WHERE `id`='40'";
-$id;
-$ime;
-$email;
-$money;
+$sql = "SELECT * FROM `transactions` WHERE transactions.username='tarik besic';";
 $result = $konekcija->query($sql);
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $id = $row['id'];
-        $ime = $row['ime'];
-        $email = $row['email'];
-        $money = $row['novac'];
-    }
-}
+
 ?>
 
 <!DOCTYPE html>
@@ -25,12 +12,12 @@ if ($result->num_rows > 0) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/user/dashboard.css">
+    <link rel="stylesheet" href="./styles/user/transactions.css">
     <title>Document</title>
 </head>
 
 <body>
-    <div class="sidebar">
+<div class="sidebar">
         <div class="upper">
             <div class="hamburger">
                 <img src="./images/menu.png" class="img">
@@ -56,20 +43,37 @@ if ($result->num_rows > 0) {
         </a>
     </div>
     <div class="header">
-        <h1>DOBRO DOSAO <?php echo $ime; ?> </h1>
+        <h1>Lista Tvojih Transakcija </h1>
     </div>
+    <div class="content">
+        <div class="content">
+            <div class="table-container">
+                <div class="row">
+                    <h1>lista korisnika</h1>
 
-    <div class="container">
-        <div class="card">
-            <div class="face face1">
-                <div class="content">
-                    <h3>PAREEEE <br>🤑🤑</h3>
-                    <img src="./images/money.png">
                 </div>
-            </div>
-            <div class="face face2">
-                <div class="content">
-                    <h1 style="text-align:center">Trenutno imas <?php echo $money ?> KM;</h1>
+                <div class="table">
+                    <div class="row header">
+                        <div class="cell header">id</div>
+                        <div class="cell header">ime</div>
+                        <div class="cell header">valuta</div>
+                        <div class="cell header">kurs</div>
+                        <div class="cell header">kolicina</div>
+                    </div>
+                    <?php
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                    ?>
+                            <div class="row">
+                                <div class="cell "><?php echo $row['id']; ?> </div>
+                                <div class="cell "><?php echo $row['username']; ?> </div>
+                                <div class="cell "><?php echo $row['currency']; ?> </div>
+                                <div class="cell "><?php echo $row['value']; ?> </div>
+                                <div class="cell "><?php echo $row['bought']; ?> </div>
+                            </div>
+                    <?php       }
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -77,7 +81,7 @@ if ($result->num_rows > 0) {
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <script>
-     $(".hamburger").click(() => {
+    $(".hamburger").click(() => {
         const sidebar = $(".sidebar");
         if (sidebar.hasClass("opened")) {
             sidebar.removeClass("opened");

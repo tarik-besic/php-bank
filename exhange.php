@@ -20,7 +20,7 @@ if (isset($_POST['data'])) {
 </head>
 
 <body>
-    <div class="sidebar">
+<div class="sidebar">
         <div class="upper">
             <div class="hamburger">
                 <img src="./images/menu.png" class="img">
@@ -29,11 +29,11 @@ if (isset($_POST['data'])) {
                 <img src="./images/123.png">
                 <div class="text">Dashboard</div>
             </a>
-            <a class="menu" href="">
+            <a class="menu" href="transactionsAdmin.php">
                 <img src="./images/123.png">
                 <div class="text">Transactions</div>
             </a>
-            <a class="menu" href="">
+            <a class="menu" href="exhange.php?kurs=eur">
                 <img src="./images/123.png">
                 <div class="text">Manage Exchange Rates</div>
             </a>
@@ -66,15 +66,14 @@ if (isset($_POST['data'])) {
                     $result = $konekcija->query($sql);
                     if ($result->num_rows > 0) {
                         // output data of each row
-                        while($row = $result->fetch_assoc()) {
-                           $eur=$row['vrijednost'];
+                        while ($row = $result->fetch_assoc()) {
+                            $eur = $row['vrijednost'];
                         }
-                      } else {
+                    } else {
                         echo "0 results";
-                      }
-                    
+                    }
                 }
-                
+
                 ?>
                 BAM
                 <input type="text" id="money" value="<?php echo $eur; ?>">
@@ -85,6 +84,14 @@ if (isset($_POST['data'])) {
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <script>
+     $(".hamburger").click(() => {
+        const sidebar = $(".sidebar");
+        if (sidebar.hasClass("opened")) {
+            sidebar.removeClass("opened");
+        } else
+            sidebar.addClass("opened");
+
+    })
     $("#add").click(() => {
         const data = $("#money").val();
         $.ajax({

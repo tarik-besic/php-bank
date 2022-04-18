@@ -25,7 +25,7 @@ $result = $konekcija->query($sql);
                 <img src="./images/123.png">
                 <div class="text">Dashboard</div>
             </a>
-            <a class="menu" href="">
+            <a class="menu" href="transactionsAdmin.php">
                 <img src="./images/123.png">
                 <div class="text">Transactions</div>
             </a>

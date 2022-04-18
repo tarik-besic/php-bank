@@ -28,22 +28,35 @@ if ($result2->num_rows > 0) {
 
 if (isset($_POST['val'])) {
 
-    
-    $userval=$_POST['val'];
 
-    if($userval*$vrijednost > $money)
-    echo "ne moze";
-    else
-    echo "MOZE";
-    
-    if ($result) {
-        echo true;
-        // header('Refresh: 3; URL=http://localhost/wp1/proj/view.php');
-    } else {
-        echo false;
-    }
+    $userval = $_POST['val'];
+    $newmoney = (float) $userval * (float) $vrijednost;
+    // echo $newmoney. "-". $money;
+    if ($newmoney < $money) {
+
+        $usermoney = (float)$money - (float)$newmoney;
+
+        $sql3 = "UPDATE `users` SET `novac` = '$usermoney' WHERE `users`.`id` = 40;";
+
+        $sql4 = "INSERT INTO `transactions` (`id`, `username`, `currency`, `value`, `bought`) VALUES (NULL, '$ime', '$eur', '$vrijednost', '$userval');";
+
+        $result4 = $konekcija->query($sql4);
+
+        $result3 = $konekcija->query($sql3);
+        //    echo "GHHLAVNO". $result3;
+    };
 }
 
+if (isset($_POST['trans'])) {
+
+    $userval = $_POST['val'];
+
+        $sql4 = "INSERT INTO `transactions` (`id`, `username`, `currency`, `value`, `bought`) VALUES (NULL, '$ime', '$eur', '$vrijednost', '$userval');";
+
+        $result4 = $konekcija->query($sql4);
+        echo $result4;
+       
+}
 
 ?>
 
@@ -59,7 +72,7 @@ if (isset($_POST['val'])) {
 </head>
 
 <body>
-    <div class="sidebar">
+<div class="sidebar">
         <div class="upper">
             <div class="hamburger">
                 <img src="./images/menu.png" class="img">
@@ -72,9 +85,9 @@ if (isset($_POST['val'])) {
                 <img src="./images/123.png">
                 <div class="text">Convert money</div>
             </a>
-            <a class="menu" href="exhange.php?kurs=eur">
+            <a class="menu" href="transactionsUser.php">
                 <img src="./images/123.png">
-                <div class="text">Manage Exchange Rates</div>
+                <div class="text">View your transactions</div>
             </a>
         </div>
         <a class="logout" href="login.php">
@@ -85,12 +98,14 @@ if (isset($_POST['val'])) {
         </a>
     </div>
     <div class="header">
-        <h1>DOBRO DOSAO DA ZMIJENIS VALUTE </h1>
+        <h1>DOBRO DOSAO DA ZAMIJENIS VALUTE </h1>
     </div>
 
     <div class="drugiContainer">
-        <h1 >Trenutno imas <?php echo $money ?> KM;</h1>
+    <input type="hidden" id="moneyHas" value="<?php echo $money; ?>">
+        <h1>Trenutno imas <?php echo $money ?> KM;</h1>
         <h2>
+            <input type="hidden" id="vrijednost" value="<?php echo $vrijednost; ?>">
             TRENUTNI KURS €EUR u KM je : <?php echo $vrijednost ?>
         </h2>
 
@@ -113,21 +128,25 @@ if (isset($_POST['val'])) {
 
     })
     $(".btn").click(() => {
-        const val=$("#kupit").val();
+        const val = $("#kupit").val();
+        const vrijednost = $("#vrijednost").val();
+        const moneyy = $("#moneyHas").val();
+        console.log(val,vrijednost);
+        if(val*vrijednost> moneyy || !Number(val))
+        {
+            alert("Nemate dovoljno sredstava da izvrsite transkaciju")
+            return;
+        }
 
         $.ajax({
-            url: "",
+            url: "convert.php",
             method: "post",
             data: {
                 val
             },
             success: (data) => {
-                if (data) {
-                    console.log("da",data)
-                    
-                } else
-                    console.log("ne",data)
-
+             alert(`Uspjesno ste kupili ${val} Eura`)
+             window.location="convert.php";
             }
         })
 

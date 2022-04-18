@@ -1,0 +1,114 @@
+@import "../reusable";
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+a {
+    text-decoration: none;
+}
+
+.sidebar {
+    @include sidebar;
+}
+
+.opened {
+    width: 160px;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 62px;
+    width: 100%;
+
+    h1 {
+        color: white;
+    }
+    background-color: #262a33;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .table-container {
+        overflow-x: auto;
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .add {
+
+                background-color: #657ee4;
+                margin-top: 10px;
+                border-radius: 20px;
+                cursor: pointer;
+                padding: 10px;
+
+                &:hover {
+                    background-color: #4564e2
+                }
+            }
+        }
+
+        .table {
+            padding: 10px;
+            min-width: fit-content;
+            display: flex;
+            flex-direction: column;
+            width: 900px;
+            justify-content: space-between;
+
+            .row {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                background-color: white;
+                margin-bottom: 10px;
+                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            }
+
+            .cell {
+                background-color: white;
+                padding: 10px;
+                word-wrap: break-word;
+                width: 180px;
+                font-size: 21px;
+                min-width: 100px;
+                text-align: center;
+            }
+
+            .header {
+                // background-color: rgb(236, 209, 86);
+                background-color: #657ee4;
+                font-weight: bold;
+            }
+
+            .action {
+                color: black;
+                margin: 2px;
+                background-color: #657ee4;
+                border-radius: 10px;
+                padding: 10px;
+                font-size: 21px;
+                border: none;
+
+                &:hover {
+                    background-color: #4564e2
+                }
+            }
+
+        }
+    }
+}

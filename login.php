@@ -36,10 +36,10 @@
 
         const name = $("#username").val();
         const pass = $("#pass").val();
-        if (name == "admin" && pass == "12345") {
+        if (name == "admin" && pass == "admin") {
             window.location = "dashboard.php";
         }
-        else if(name == "tarik" && pass == "12345"){
+        else if(name == "tarik besic" && pass == "user"){
             window.location = "dashboardUser.php";
         }
         else{
